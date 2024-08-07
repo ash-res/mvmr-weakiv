@@ -21,3 +21,19 @@
  * kappa.limit (optional): c(-kappa.limit, kappa.limit) are the limits for the overdispersion parameter estimate. Only relevant if robust is TRUE and for the Kleibergen-OH confidence set. If not supplied, default is kappa.limit=250
  * seed (optional): the seed for random sampling involved in computing critical values for the Andrews robust confidence set (default value is 100)
 
+##### Output is a list containing...
+ * condFstat: K vector of conditional F statistics (one for each exposure)
+ * gmm_est: K vector of causal effect estimates using GMM estimation
+ * cs_n: non-robust confidence set based on inverting Wald test statistics; each column is a K vector of exposure effect values not rejected the test
+ * cs_ar: robust confidence set based on inverting Anderson-Rubin test statistics; each column is a K vector of exposure effect values not rejected by the test
+ * cs_k: robust confidence set based on inverting Kleibergen test statistics; each column is a K vector of exposure effect values not rejected by the test
+ * cs_koh: robust confidence set based on inverting Kleibergen-OH test statistics that account for overdispersion heterogeneity; each column is a K vector of exposure effect values not rejected by the test. Reported only if the input robust is TRUE
+ * cs_r: robust confidence set based on inverting Andrews linear combination test statistics; each column is a K vector of exposure effect values not rejected by the test
+ * cutoff: maximum coverage distortion for non-robust Wald-based confidence set cs_n; minimum value is gamma.min
+ * kappa: the average estimated overdispersion heterogeneity parameter over non-rejected values of exposure effects. Reported only if the input robust is TRUE
+
+##### Example
+ * res <- mvmr.weakiv(bx=cbind(dat$beta.map,dat$beta.pp),by=dat$beta.stroke,sx=cbind(dat$se.map,dat$se.pp),sy=dat$se.stroke,nx=dat$nx,ny=dat$ny,cor.x=dat$cor.x,max.search=0.3,len.search=80)
+
+##### Paper
+ * for further details, please see the preprint: "Weak instruments in multivariable Mendelian randomization: methods and practice"
