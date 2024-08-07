@@ -34,6 +34,13 @@
 
 ##### Example
  * res <- mvmr.weakiv(bx=cbind(dat$beta.map,dat$beta.pp),by=dat$beta.stroke,sx=cbind(dat$se.map,dat$se.pp),sy=dat$se.stroke,nx=dat$nx,ny=dat$ny,cor.x=dat$cor.x,max.search=0.3,len.search=80)
+  (this may take a few minutes to run)
+ * plot(res$cs_n[1,],res$cs_n[2,],pch=16,main="Non-robust (Wald) confidence set", xlab = "MAP effect", ylab = "PP effect", xlim=c(-0.3,0.3), ylim=c(-0.3,0.3))
+   grid();abline(v=0,lty=2);abline(h=0,lty=2)
+ * plot(res$cs_r[1,],res$cs_r[2,],pch=16,main="Robust (Andrews) confidence set", xlab = "MAP effect", ylab = "PP effect", xlim=c(-0.3,0.3), ylim=c(-0.3,0.3))
+   grid();abline(v=0,lty=2);abline(h=0,lty=2)
+
+   
 
 ##### Paper
  * for further details, please see the preprint: "Weak instruments in multivariable Mendelian randomization: methods and practice"
