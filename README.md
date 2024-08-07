@@ -2,7 +2,7 @@
 #### by Ashish Patel, James Lane, & Stephen Burgess #### 
 
 ##### Installing the R package
-* devtools::install_github("ash-res/mvmr.weakiv")
+* devtools::install_github("ash-res/mvmr-weakiv")
 
 ##### Inputs (genetic association summary data)
  * bx: J x K matrix of genetic variant associations with K exposures (number of variants J cannot be less than number of exposures K)
